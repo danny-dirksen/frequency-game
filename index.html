@@ -6,104 +6,34 @@
     <script src="p5.sound.min.js"></script>
     <script src="sketch.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-      html {
-        font-size: 14pt;
-        font-family: inter, Arial, Helvetica, sans-serif;
-        background: rgb(14,87,93);
-        background: linear-gradient(39deg, rgba(14,87,93,1) 0%, rgba(70,22,78,1) 100%);
-        background-image: url(dish-blur.jpg);
-        background-size: cover;
-        background-position: center;
-        height: 100%;
-        overflow: hidden;
-      }
-      body {
-        padding: 2em;
-        margin: 0;
-        color: white;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        min-height: 100%;
-        overflow: scroll;
-        box-sizing: border-box;
-        gap: 1em;
-      }
-      h1, h2, h3, h4, h5, h6, div {
-        margin: 0;
-      }
-      input {
-        appearance: none;
-      }
-      input[type="text"] {
-        background-color: transparent;
-        border: 1px solid white;
-        color: white;
-        padding: 0.5em 1em;
-        width: 8ch;
-        height: 2em;
-      }
-      input[type="range"] {
-        padding: 0 0;
-        width: 16ch;
-        background: white;
-        height: 1px;
-      }
-      input[type="range"]::-webkit-slider-thumb {
-        -webkit-appearance: none; /* Override default look */
-        appearance: none;
-        width: 1px; /* Set a specific slider handle width */
-        height: 25px; /* Slider handle height */
-        background: white; /* Green background */
-        cursor: pointer; /* Cursor on hover */
-      }
-      button {
-        color: black;
-        background: white;
-        border: none;
-        padding: 0.5em 1em;
-        font-size: 1em;
-      }
-      button:hover {
-        background: rgb(224, 221, 249);
-      }
-      .two-columns {
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        gap: 1em;
-      }
-      .fixed-width {
-        min-width: 12ch;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css"></link>
   </head>
   <body>
     <h1>Guess the Hz!</h1>
     
-    <div class="two-columns">
+    <div class="columns">
       <span>Guess:</span>
       <input type="text" id="guess">
       <span>Hz</span>
     </div>
-    <div class="two-columns">
-      <button id="play"><b>Replay</b></button><button id="check">Check</button>
+    <div class="columns">
+      <button id="play"><b>Mystery Tone™</b></button><button id="check">Check</button>
     </div>
     <div id="message"></div>
+    <div class="divider"></div>
     <h2>Instructions</h2>
     <div>
-      <b>Space:</b> Replay Mystery Frequency<br>
+      Try to guess the frequency of the Mystery Tone™<br>
+      <b>Space:</b> Replay Mystery Tone™<br>
       <b>Enter:</b> Check Guess / Start New Round
     </div>
     <div><h2>Settings</h2></div>
-    <div class="two-columns">
-      <div class="fixed-width">
+    <div class="columns even">
+      <div class="column">
         <div>Min: <span id="min"></span></div>
-        <input id="minslider" type="range" min="5" max="11" value="6">
+        <input id="minslider" type="range" min="5" max="11" value="7">
       </div>
-      <div class="fixed-width">
+      <div class="column">
         <div>Max: <span id="max"></span></div>
         <input id="maxslider" type="range" min="6" max="15" value="13">
       </div>

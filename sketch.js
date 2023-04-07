@@ -53,6 +53,7 @@ function play(freq) {
     synth.setADSR(0.01, 0.5, 0);
   }
   console.log(freq)
+  console.log(typeof freq)
   synth.play(freq, 0.5, 0, 0.1);
 }
 
@@ -75,8 +76,7 @@ function check() {
 }
 
 function updateGuess() {
-  state.guess = els.guess.value.replace(/\D/g,'') || null;
-  els.guess.value = parseInt(els.guess.value) || "";
+  state.guess = parseInt(els.guess.value.replace(/\D/g,'') || null);
   renderState();
 }
 
@@ -111,7 +111,7 @@ function renderState() {
   } else {
 
   }
-  els.guess.value = state.guess
+  els.guess.value = state.guess ? state.guess : ""
   els.check.style.display = state.guess ? "unset" : "none";
   const [min, max] = getFreqRangeValues();
   const minFreq = 2 ** min
